@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@microsoft/signalr": "^5.0.7",
+    "sweetalert2": "^11.0.17"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.7.2"
+  }
+}

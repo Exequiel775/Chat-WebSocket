@@ -1,0 +1,94 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4" id="bienvenida"></h1>
+</div>
+
+<div class="alert alert-success alert-dismissible fade show" role="alert" id="alerta-conectado" style="display: none;">
+  <strong id="id-cliente"></strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="row mt-4 contenedor">
+
+</div>
+
+<div class="row mt-3">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 border">
+    <div class="m-4">
+      <div class="form-group">
+        <label>Usuario Seleccionado: <strong id="user-seleccionado"></strong></label>
+      </div>
+      <br>
+      <div class="form-group">
+        <label>Mensaje</label>
+        <input type="text" class="form-control" id="mensaje">
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary enviar">Enviar</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 border">
+    <div class="m-4">
+      <h3>Sala de chat</h3>
+      <hr>
+      <div class="chat">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="modalRegistroLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Usuario</label>
+          <input type="text" class="form-control" id="nombre-usuario">
+        </div>
+        <div class="form-group">
+          <label>Edad</label>
+          <input type="text" class="form-control">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="registrarme">Registrarme</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .usuario{
+    border:4px solid #0097e6;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    $('#modalRegistro').modal('show');
+    $('#modalRegistro').show('fast');
+  });
+
+  document.getElementById('registrarme').addEventListener('click', () => {
+
+    let usuario = document.getElementById('nombre-usuario').value;
+
+    document.getElementById('bienvenida').textContent = `Bienvenido ${usuario}`;
+  });
+</script>
+
+<script src="~/SignalR-Chat/main.js"></script>
